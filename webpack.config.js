@@ -3,12 +3,13 @@ var path = require('path');
 var autoprefixer = require('autoprefixer');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var BUILD_DIR = path.resolve(__dirname, 'build');
 var APP_DIR = path.resolve(__dirname, 'src');
 
 var config = {
-  entry: ['bootstrap-loader', APP_DIR + '/app.jsx'],
+  entry: [APP_DIR + '/app.jsx'],
   output: {
     path: BUILD_DIR,
     filename: 'bundle.js'
@@ -22,11 +23,8 @@ var config = {
       test: /\.css$/,
       loader: "style-loader!css-loader"
     }, {
-      test: /\.png$/,
-      loader: "url-loader?limit=100000"
-    }, {
-      test: /\.jpg$/,
-      loader: "file-loader"
+      test: /\.(jpg|jpeg|gif|png)$/,
+      loader:'file-loader?name=img/[name].[ext]'
     }, {
       test: /\.(woff|woff2)(\?v=\d+\.\d+\.\d+)?$/,
       loader: 'url?limit=10000&mimetype=application/font-woff'
@@ -49,6 +47,9 @@ var config = {
   },
   plugins: [
     new ExtractTextPlugin( "bundle.css" ),
+    new CopyWebpackPlugin([
+        { from: './img', to:'img' }
+    ]),
     new HtmlWebpackPlugin({
       hash: true,
       title: 'Perdoco',

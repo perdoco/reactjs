@@ -31,9 +31,6 @@ const config = {
     new CopyWebpackPlugin([
       { from: 'src/img', to:'img' },
     ], {
-      ignore: [
-        { glob: '**/*.html' }
-      ],
       copyUnmodified: true
     }),
     new HtmlWebpackPlugin({

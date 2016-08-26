@@ -1,6 +1,3 @@
-import React from 'react';
-import {render} from 'react-dom';
-
 class Module3 extends React.Component {
   render() {
     return (

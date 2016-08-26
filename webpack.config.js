@@ -25,11 +25,11 @@ const config = {
     }, {
       test: /\.(eot|ttf|svg|woff|woff2)$/,
       loader: 'file-loader?name=fonts/[name].[ext]'
-    },]
+    }
   },
   plugins: [
     new CopyWebpackPlugin([
-      { from: 'src/img', to:'img' },
+      { from: 'src/img', to:'img' }
     ], {
       copyUnmodified: true
     }),
@@ -44,7 +44,7 @@ const config = {
       jQuery: 'jquery',
       React: 'react',
       ReactDOM: 'react-dom'
-    }),
+    })
   ]
 };
 

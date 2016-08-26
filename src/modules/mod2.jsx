@@ -1,4 +1,4 @@
-class Module2 extends React.Component {
+export default class Module2 extends React.Component {
   render() {
     return (
       <div className="panel panel-default">
@@ -10,5 +10,3 @@ class Module2 extends React.Component {
     );
   }
 }
-
-module.exports = Module2;

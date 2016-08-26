@@ -25,7 +25,7 @@ const config = {
     }, {
       test: /\.(eot|ttf|svg|woff|woff2)$/,
       loader: 'file-loader?name=fonts/[name].[ext]'
-    }
+    }]
   },
   plugins: [
     new CopyWebpackPlugin([
